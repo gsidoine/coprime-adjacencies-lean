@@ -4,23 +4,23 @@
 
 A Lean 4 formalization of an exact extremal formula for permutations of consecutive positive integers.
 
-For a permutation (a=(a_1,\ldots,a_n)) of ({1,\ldots,n}), put
+For a permutation \(a=(a_1,\ldots,a_n)\) of \(\{1,\ldots,n\}\), put
 
-[
+\[
 c(a)=\#\{1\le i<n:\gcd(a_i,a_{i+1})=1\},\qquad
 h(n)=\min_{a\in S_n} c(a).
-]
+\]
 
-Write (\pi(x)) for the number of primes at most (x). The proved theorem is
+Write \(\pi(x)\) for the number of primes at most \(x\). The proved theorem is
 
-[
+\[
 \boxed{h(n)=\pi(n)-\pi(n/2)+
 \max\left\{1,\left\lceil\frac{\pi(n/2)-\pi(n/3)}{2}\right\rceil\right\}}
 \qquad (n\ge4).
-]
+\]
 
 The exact identity is proved without a prime-counting assumption. The consequence
-(h(n)\sim 7n/(12\log n)), obtained using the prime number theorem, is **not**
+\(h(n)\sim 7n/(12\log n)\), obtained using the prime number theorem, is **not**
 separately formalized.
 
 ## Formalization
