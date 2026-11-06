@@ -1,17 +1,23 @@
 module
 
-public import PalomarTemplate
-
-public section
+public import CoprimeAdjacencies
 
 /-!
-# Proved solution
+# Exact minimum number of coprime adjacencies — proof
 
-This module may import the full proof development. Comparator checks that the
-declaration below has exactly the same statement as its counterpart in
-`Challenge.lean` and uses only the permitted axioms.
+The substantive proof is in `CoprimeAdjacencies.Proof`; the theorem
+below is the Solution counterpart of `Challenge`.
 -/
 
-theorem PalomarTemplate.main_result (n : ℕ) : n + n = 2 * n := by
-  exact add_self_eq_two_mul n
+@[expose] public section
 
+namespace CoprimeAdjacencies
+
+/-- The exact finite-`n` formula, proved by the constructive path-cover argument. -/
+theorem exact_minimum_coprime_adjacencies (n : ℕ) (hn : 4 ≤ n) :
+    P010.h n = P010.target n := by
+  exact P010.P010_exact n hn
+
+#print axioms exact_minimum_coprime_adjacencies
+
+end CoprimeAdjacencies

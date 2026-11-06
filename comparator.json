@@ -1,8 +1,14 @@
 {
   "challenge_module": "Challenge",
   "solution_module": "Solution",
-  "theorem_names": ["PalomarTemplate.main_result"],
+  "theorem_names": [
+    "CoprimeAdjacencies.exact_minimum_coprime_adjacencies"
+  ],
   "definition_names": [],
-  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
   "enable_nanoda": true
 }
