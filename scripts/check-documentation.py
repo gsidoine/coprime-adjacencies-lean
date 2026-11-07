@@ -25,7 +25,7 @@ for path in sorted(root.rglob("*.md")):
     if ".lake" in path.parts:
         continue
     content = path.read_text(encoding="utf-8")
-    for target in re.findall(r"(?<!!)\\[[^\\]]*\\]\\(([^)]+)\\)", content):
+    for target in re.findall(r"(?<!!)\[[^\]]*\]\(([^)]+)\)", content):
         target = target.split("#", 1)[0].split("?", 1)[0]
         if not target or re.match(r"^[a-z][a-z0-9+.-]*:", target, re.I):
             continue
@@ -36,7 +36,7 @@ for term in ("\\pi(", "n\\ge4", "CoprimeAdjacencies.exact_minimum_coprime_adjace
     if term not in readme:
         raise SystemExit(f"README missing mathematical statement or theorem: {term}")
 for name in ("IsPermutation", "adjacentCount", "pi", "target", "Attained", "h"):
-    if not re.search(rf"/--[^\n]*-/(?:\\s+)(?:noncomputable )?def {name}\\b", challenge):
+    if not re.search(rf"/--[^\n]*-/(?:\s+)(?:noncomputable )?def {name}\b", challenge):
         raise SystemExit(f"Missing documented Challenge definition: {name}")
 if "theorem exact_minimum_coprime_adjacencies" not in challenge:
     raise SystemExit("Missing advertised exact theorem in Challenge")
