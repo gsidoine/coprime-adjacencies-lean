@@ -53,8 +53,18 @@ ruby scripts/validate-formalization.rb
 ./scripts/verify-comparator.sh
 ```
 
-CI additionally builds the project documentation and checks the root licence
-and submission metadata.
+CI checks the mathematical documentation and internal links as well as
+the Lean build, Comparator, licence, and submission metadata. Full HTML API
+documentation is optional and not required for Palomar verification. The
+included `docbuild/` project can be run on a machine with sufficient memory:
+
+```sh
+cd docbuild
+lake build CoprimeAdjacencies:docs
+```
+
+A full doc-gen4 build traverses the Mathlib dependency graph and exceeds the
+memory limit of GitHub's standard Linux runners; it is therefore not part of CI.
 
 The deliberate `sorry` in `Challenge.lean` is a placeholder marking the
 proposition under verification, **not** a dependency of the Solution theorem.
