@@ -93,7 +93,9 @@ jobs:
   docs:
     name: Build API documentation
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # doc-gen4 generates documentation for the Mathlib dependency closure.
+    # Restrict Lake's Lean task pool to avoid exhausting the runner's RAM.
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -109,6 +111,7 @@ jobs:
           MATHLIB_NO_CACHE_ON_UPDATE: "1"
           DISABLE_EQUATIONS: "1"
           DOCGEN_SRC: github
+          LEAN_NUM_THREADS: "2"
         run: lake build CoprimeAdjacencies:docs
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
